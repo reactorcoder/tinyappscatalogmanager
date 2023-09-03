@@ -1,8 +1,6 @@
 package main
 
 import (
-	lib "tinyappcatalogmanager/lib"
-	"tinyappcatalogmanager/ui"
 	"encoding/json"
 	"fmt"
 	"fyne.io/fyne/v2"
@@ -20,6 +18,8 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	lib "tinyappcatalogmanager/lib"
+	"tinyappcatalogmanager/ui"
 )
 
 func getPageAsString(url string) (string, error) {
@@ -322,6 +322,13 @@ func buildMenu(win fyne.Window, app fyne.App) *fyne.MainMenu {
 		}
 		app.OpenURL(u)
 	})
+	websiteapp := fyne.NewMenuItem("Open Catalog Manager", func() {
+		u, err := url.Parse("https://github.com/reactorcoder/tinyappscatalogmanager")
+		if err != nil {
+			fmt.Println("error", err)
+		}
+		app.OpenURL(u)
+	})
 	aboutitem := fyne.NewMenuItem("About Catalog Apps", func() {
 		// imagePath := filepath.Join("../", selectedApp.Screenshot)
 		//			emptyCanvas = canvas.NewImageFromFile(imagePath)
@@ -331,13 +338,13 @@ func buildMenu(win fyne.Window, app fyne.App) *fyne.MainMenu {
 		//			})
 		textCanvas := canvas.NewText("Developed freely to fetch lists of apps from tinyapps.org as catalog apps manager.\n\n\n\n "+
 			"Lists of apps are maintained by tinyapps.org. \n\n "+
-			"Apps catalog manager are available source from GitHub: ... \n\n"+
+			"Apps catalog manager are available source from GitHub: https://github.com/reactorcoder/tinyappscatalogmanager/tree/main \n\n"+
 			"2023 \n "+
 			"Version: 1.0", color.White)
 
 		dialog.ShowInformation("About Catalog Apps", textCanvas.Text, win)
 	})
-	ab := fyne.NewMenu("About", website, aboutitem)
+	ab := fyne.NewMenu("About", website, websiteapp, aboutitem)
 
 	m := fyne.NewMainMenu(manageStore, settings, ab)
 	return m
