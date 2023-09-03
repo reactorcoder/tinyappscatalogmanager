@@ -1,0 +1,12 @@
+network
+text
+graphics
+system
+file
+misc
+Palm OS
+macOS
+tech blog
+document vault
+here
+read the FAQ
