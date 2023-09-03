@@ -8,9 +8,10 @@ It is organized by category of applications. Each category of applications are o
 
 ## Goal
 
-Providing "app store manager" from tinyapps.org sites. Tinyapps.org cataloged tiny, well-made software for ages.
+Providing "app store manager" from tinyapps.org sites. 
 
-Read their FAQ: https://tinyapps.org/faq
+Tinyapps.org cataloged tiny, well-made software for ages. Read their FAQ: https://tinyapps.org/faq
+Listings are usually for Windows and Mac mostly but particular of apps can be for Linux by opening URI links.
 
 ## Preview
 
@@ -28,6 +29,29 @@ v1.0
 - open site and URL of apps
 - preview image of apps
 - preview filesize of applications
+
+## Available downloads
+
+### Linux
+
+Download repository. Run executable application:
+```sh
+./tinyappcatalogmanager 
+```
+
+### Windows
+
+Soon release.
+
+### Mac
+
+Soon release.
+
+## Building source
+
+Linux:
+
+`GOROOT=/home/$user/sdk/go1.20 GOPATH=/home/$user/go GOROOT=/home/$user/sdk/go1.20 GOPATH=/home/$user/go /home/$user/sdk/go1.20/bin/go build -o /home/$user/Desktop/tinyappcatalogmanager tinyappcatalogmanager`
 
 ## Developers
 
